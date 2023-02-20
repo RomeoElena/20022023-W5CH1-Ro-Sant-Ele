@@ -1,36 +1,36 @@
 import { useParams } from "react-router-dom";
-import { getCountry } from "../../services/api.repo";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/app.context";
+import { getCharacter } from "../../services/api.repo";
 
 export function Details() {
-  const { id } = useParams();
+  const { name } = useParams();
 
-  const { countries } = useContext(AppContext);
-  const [country, setCountry] = useState<{ [key: string]: any }>();
+  const { characters } = useContext(AppContext);
+  const [character, setCharacter] = useState<{ [key: string]: any }>();
 
-  const contextCountry = countries.find((item) => item.name === id);
+  const contextCharacter = characters.find((item) => item.name === "name");
 
   useEffect(() => {
-    const loadCountry = async () => {
-      const country = await getCountry(id as string);
-      console.log(country);
-      setCountry(country);
+    const loadCharacter = async () => {
+      const character = await getCharacter(name as string);
+      console.log(character);
+      setCharacter(character);
     };
-    loadCountry();
-  }, [id]);
+    loadCharacter();
+  }, [name]);
 
-  if (country === undefined) {
+  if (character === undefined) {
     return <>🌀 Loading</>;
   }
 
   return (
     <>
-      <h2>Details from {id}</h2>
-      <p>Capital: {contextCountry?.capital}</p>
-      <p>Población: {contextCountry?.population}</p>
-      <p>Area: {contextCountry?.area}</p>
-      <img src={country[0].coatOfArms?.svg} alt="Coat Of Arms" />
+      <h2>Detalles de {"name"}</h2>
+      <p>Nombre: {contextCharacter?.name}</p>
+      <p>Altura: {contextCharacter?.height}</p>
+      <p>Películas: {contextCharacter?.films}</p>
+      <p>N. de películas: {contextCharacter?.films}</p>
     </>
   );
 }
