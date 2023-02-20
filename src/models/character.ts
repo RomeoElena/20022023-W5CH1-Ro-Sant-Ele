@@ -6,6 +6,9 @@ export type CharacterStructure = {
 };
 
 export type CharacterResponse = {
+  count: string;
+  next: string;
+  previous: string;
   results: {
     name: string;
     height: string;

@@ -1,9 +1,10 @@
 import { createContext } from "react";
-import { CountryStructure } from "../models/country";
+import { CharacterStructure } from "../models/character";
 
 export type AppContextStructure = {
-  countries: CountryStructure[];
-  patata: { [key: string]: any };
+  characters: CharacterStructure[];
+  characterDetail: CharacterStructure;
+  pageNumber: string;
 };
 
 const initialContext = {} as AppContextStructure;
