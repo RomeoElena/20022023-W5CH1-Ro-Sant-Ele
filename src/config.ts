@@ -1,2 +1,2 @@
-export const API_URL_ALL = "https://restcountries.com/v3.1/all/";
-export const API_URL_COUNTRY = "https://restcountries.com/v3.1/name/";
+export const API_URL_PEOPLE = "https://swapi.dev/api/people/";
+export const API_URL_ALL = "https://swapi.dev/api/";
