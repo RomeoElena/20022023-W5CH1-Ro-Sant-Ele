@@ -1,27 +1,20 @@
-import { API_URL_ALL, API_URL_COUNTRY } from "../config";
-import { CountryResponse, CountryStructure } from "../models/country";
+import { API_URL_ALL, API_URL_PEOPLE } from "../config";
+import { CharacterStructure, CharacterResponse } from "../models/character"; } from "../models/character";
 
-export const getAll = async (): Promise<CountryStructure[]> => {
-  const url = API_URL_ALL + "?fields=name,capital,flags,population,area";
+export const getAll = async (): Promise<CharacterStructure[]> => {
+  const url = API_URL_ALL + "?fields=name,height,films,numOfFilms";
   const response = await fetch(url);
   if (!response.ok) throw new Error("Fetch failed");
-  const data: CountryResponse[] = await response.json();
+  const data: CharacterResponse[] = await response.json();
   return data.map((item) => {
     return {
-      name: item.name.common,
-      flag: item.flags.svg,
-      capital: item.capital[0],
-      population: item.population,
-      area: item.area,
-      isFavorite: false,
+      name: item.results.name,
+      height: item.results.height,
+      films: item.results.films,
+      numOfFlims: item.results.films.length,
+
     };
   });
 };
 
-export const getCountry = async (id: string): Promise<any> => {
-  const url = API_URL_COUNTRY + id;
-  const response = await fetch(url);
-  if (!response.ok) throw new Error("Fetch failed");
-  const data: CountryResponse = await response.json();
-  return data;
-};
+
