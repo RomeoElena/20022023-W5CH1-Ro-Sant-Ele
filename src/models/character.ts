@@ -6,7 +6,9 @@ export type CharacterStructure = {
 };
 
 export type CharacterResponse = {
-  name: string;
-  height: string;
-  films: string[];
+  results: {
+    name: string;
+    height: string;
+    films: string[];
+  };
 };
