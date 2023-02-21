@@ -1,36 +1,21 @@
-import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/app.context";
-import { getCharacter } from "../../services/api.repo";
+// import { getCharacter } from "../../services/api.repo";
 
 export function Details() {
-  const { name } = useParams();
+  const { characterDetail } = useContext(AppContext);
 
-  const { characters } = useContext(AppContext);
-  const [character, setCharacter] = useState<{ [key: string]: any }>();
-
-  const contextCharacter = characters.find((item) => item.name === "name");
-
-  useEffect(() => {
-    const loadCharacter = async () => {
-      const character = await getCharacter(name as string);
-      console.log(character);
-      setCharacter(character);
-    };
-    loadCharacter();
-  }, [name]);
-
-  if (character === undefined) {
+  if (characterDetail === undefined) {
     return <>🌀 Loading</>;
   }
 
   return (
     <>
-      <h2>Detalles de {"name"}</h2>
-      <p>Nombre: {contextCharacter?.name}</p>
-      <p>Altura: {contextCharacter?.height}</p>
-      <p>Películas: {contextCharacter?.films}</p>
-      <p>N. de películas: {contextCharacter?.films}</p>
+      <h2>Details of </h2>
+      <p>Name: {characterDetail?.name}</p>
+      <p>Height: {characterDetail?.height}</p>
+      <p>First Film: {characterDetail?.films.join()}</p>
+      <p>Number of films: {characterDetail?.numOfFilms}</p>
     </>
   );
 }

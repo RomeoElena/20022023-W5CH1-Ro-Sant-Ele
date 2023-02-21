@@ -1,8 +1,14 @@
+export type ProtoCharacterStructure = {
+  name: string;
+  height: string;
+  films: string[];
+};
+
 export type CharacterStructure = {
   name: string;
   height: string;
   films: string[];
-  numOfFlims: number;
+  numOfFilms: number;
 };
 
 export type CharacterResponse = {
@@ -13,5 +19,5 @@ export type CharacterResponse = {
     name: string;
     height: string;
     films: string[];
-  };
+  }[];
 };

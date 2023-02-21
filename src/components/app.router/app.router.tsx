@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-// import { MenuOption } from "../app/App";
+import { MenuOption } from "../app/app";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("../../pages/home/home"));

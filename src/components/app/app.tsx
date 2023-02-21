@@ -1,14 +1,14 @@
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 import { AppRouter } from "../app.router/app.router";
-import { Characters } from "../characters/characters";
-import { Details } from "../details/details";
+// import { Characters } from "../characters/characters";
+// import { Details } from "../details/details";
 import { Nav } from "../nav/nav";
 
 export type MenuOption = {
   label: string;
   path: string;
 };
-const menuOptions: MenuOption[] = [
+export const menuOptions: MenuOption[] = [
   { label: "Home", path: "/home" },
   { label: "Characters", path: "/characters" },
   { label: "Details", path: "/details" },

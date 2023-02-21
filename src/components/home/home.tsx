@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="home">
       <h4 className="title" role="paragraph">
-        React Padawans: Elena, Rocío and Santiago
+        React Little Padawans: Elena, Rocío and Santiago
       </h4>
       <h4 className="title" role="paragraph">
         Jedi Master: Alejandro
