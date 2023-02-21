@@ -7,9 +7,9 @@ export function AppContextProvider({ children }: { children: JSX.Element }) {
   const [characters, setCharacters] = useState<CharacterStructure[]>([]);
 
   const [characterDetail, setCharacterDetail] = useState<CharacterStructure>({
-    films: ["nunca"],
-    height: "27",
-    name: "loque quieras",
+    films: ["void"],
+    height: "100",
+    name: "Initial Character",
     numOfFlims: 65,
   });
   const [pageNumber, setPageNumber] = useState<string>("1");

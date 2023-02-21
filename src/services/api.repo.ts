@@ -8,12 +8,13 @@ export const getAll = async (): Promise<CharacterStructure[]> => {
   const data: CharacterResponse[] = await response.json();
 
   console.log(data.results);
+  console.log(data.results[0].films.length);
   return data.results.map((item) => {
     return {
       name: item.name,
       height: item.height,
       films: item.films,
-      numOfFlims: "7",
+      numOfFlims: item.films.length,
     };
   });
 };

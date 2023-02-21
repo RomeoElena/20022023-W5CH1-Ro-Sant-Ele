@@ -1,0 +1,21 @@
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 6rem));
+  // display: flex;
+  // flex-direction: row;
+  // align-items: end;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+.nav__option {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+*:hover {
+  color: grey;
+}
